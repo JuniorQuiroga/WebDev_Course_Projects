@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Barlow:wght@100;200&family=Caveat&family=Shadows+Into+Light&display=swap');
+
+:root{
+    --c0:rgb(222, 233, 229);
+    --paper1: rgb(202 215 211);
+    --c1:rgb(92, 143, 148);
+    --c2:rgb(56, 95, 96);
+    --c3:rgb(17, 34, 34);
+    --c4:rgb(9, 15, 15);
+    --text-note-size:15pt;
+}
+
+*{
+    overflow-x: hidden;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+}
+
+.color_palette{
+    display: none;
+    flex-direction: row;
+    border-color: white;
+    border-style: solid;
+}
+
+#c0{
+    background-color: var(--c0);
+    width: 100px;
+    height: 100px;
+}
+#c1{
+    background-color: var(--c1);
+    width: 100px;
+    height: 100px;
+}
+#c2{
+    background-color: var(--c2);
+    width: 100px;
+    height: 100px;
+}
+#c3{
+    background-color: var(--c3);
+    width: 100px;
+    height: 100px;
+}
+#c4{
+    background-color: var(--c4);
+    width: 100px;
+    height: 100px;
+}
+
+
+
+body{
+    background: var(--c3);
+}
+
+title{
+    display: none;
+}
+
+#main{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+  
+#img-div{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    
+    padding:15px;
+    width:100%;
+    height:auto;
+    margin-top: 50px;
+    
+    background-color:var(--c2);
+    box-shadow: var(--c4) 0px 0px 20px;
+}
+
+#image{
+    width: 300px;
+    max-width: 90vw;
+    height: auto;
+    border-radius: 20px;
+}
+
+#img-caption{
+    font-family: 'Barlow', sans-serif;
+    font-size:25pt;
+    font-weight: bolder;
+    text-align: center;
+    color:var(--c0);
+    
+    margin-top:15px;
+}
+
+.note{
+    width: 800px;
+    max-width: 90vw;
+    height: auto;
+    margin: 50px 0px;
+}
+
+.paper{
+    
+    margin: 50px 0px 0px 0px;
+    background: linear-gradient(0deg,  var(--c0) 50%,var(--paper1) 50%,var(--c0)); 
+    box-shadow: var(--c4) 10px 10px 30px;
+}
+
+.paper::before{
+    content: "";
+    position: absolute;
+    left: 100px;
+    
+    width: 2px;
+    height: 100%;
+    background-color: rgb(150, 66, 66);
+}
+
+.lines{
+    font-size: var(--text-note-size);
+    
+    margin-top: 100px;
+    background: repeating-linear-gradient(rgba(255, 255, 255, 0) 0px, 
+    rgba(255, 255, 255, 0) 2.2ch, 
+    var(--c1) 2.45ch);
+}
+
+.text{
+    font-family: 'Shadows Into Light';
+    font-size: var(--text-note-size);
+    line-height: calc(var(--text-note-size) + 22.5%);
+    padding: 0px 20px 24px 110px;
+}
+
+.tape{
+    position: absolute;
+    left: calc(50% - 25px);
+    top: 10;
+    width: 50px;
+    height: 100px;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.albums{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    margin-top: 50px;
+    width: 100%;
+    padding: 25px;
+}
+
+.cover-link{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+
+    transition: transform .1s;
+    width: 220px;
+    padding: 0px 20px;
+    color:var(--c4);
+}
+
+.cover-link:visited{
+    color: var(--c4);
+}
+
+.cover-link:hover{
+    transform: scale(1.1);
+}
+
+.cover{
+    padding: 20px;
+    background-color: var(--c0);
+    width: 100%;
+    
+    text-align: center;
+}
+
+.cover-img{
+    margin: 10px 0px 20px 0px;
+    width: 200px;
+}
+
+.album-info{
+    font-family:'Barlow', sans-serif;
+    font-size: 12pt;
+    width: 200px;
+}
+
+@media screen and ( max-width :1350px) {
+    .albums{
+        flex-direction: column;
+        gap: 25px;
+    }
+}
