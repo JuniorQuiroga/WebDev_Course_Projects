@@ -1,0 +1,120 @@
+<style>
+    div {
+      height: 40px;
+      width: 70%;
+      background: black;
+      margin: 50px auto;
+      border-radius: 5px;
+    }
+  
+    #rect {
+  animation-name: rainbow;
+    animation-duration: 4s;
+    
+    }
+  
+  @keyframes rainbow {
+    0% {
+      background-color: blue;
+    }
+    50% {
+      background-color: green;
+    }
+    100% {
+      background-color: yellow;
+    }
+  }
+  
+  /*animacion de hover boton*/
+  button {
+    border-radius: 5px;
+    color: white;
+    background-color: #0F5897;
+    padding: 5px 10px 8px 10px;
+  }
+
+  button:hover {
+    animation-name: background-color;
+    animation-duration: 1000ms;
+    /*mantiene el boton en el ultimo frame*/
+    animation-fill-mode:forwards;
+  }
+
+  @keyframes background-color{
+    100%{
+      background-color:#4791d0;
+    }
+  }
+
+  /*loops y transformacaciones*/
+  #ball {
+    width: 70px;
+    height: 70px;
+    margin: 50px auto;
+    position: fixed;
+    left: 20%;
+    border-radius: 50%;
+    background: linear-gradient(
+      35deg,
+      #ccffff,
+      #ffcccc
+    );
+    animation-name: fade;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes fade {
+    50% {
+      left: 60%;
+      opacity:0.1;
+      transform: rotate(45deg);
+    }
+  }
+
+  /*timing*/
+  .balls {
+    border-radius: 50%;
+    background: linear-gradient(
+      35deg,
+      #ccffff,
+      #ffcccc
+    );
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    margin-top: 50px;
+    animation-name: bounce;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+
+  /*timing lineal con bezier*/
+  #ball1 {
+    left:27%;
+    animation-timing-function: cubic-bezier(0.25,0.25,0.75,0.75);
+  }
+  #ball2 {
+    left:56%;
+    animation-timing-function:ease-out;
+  }
+
+  @keyframes bounce {
+    0% {
+      top: 0px;
+    }
+    100% {
+      top: 249px;
+    }
+  }
+
+  </style>
+    
+  <div class="balls" id="ball1"></div>
+  <div class="balls" id="ball2"></div>
+
+    <div id="ball"></div>
+
+    <button>Register</button>
+
+    <div id="rect"></div>
