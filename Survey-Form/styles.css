@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Annie+Use+Your+Telescope&family=Barlow:wght@100;200&family=Caveat&family=Sarpanch&family=Shadows+Into+Light&display=swap');
+
+:root{
+    --c0:rgb(245, 252, 255);
+    --c1:rgb(17, 16, 16);
+    --c2:rgb(58, 58, 61);
+    --c2-h:rgb(116, 121, 124);
+    --c2-s:rgb(29, 23, 36);
+    --c3:rgb(238, 105, 43);
+    --c4:rgb(59, 138, 228);
+    --c4-h:rgb(111, 202, 255);
+    --c4-h2:rgb(57, 168, 233);
+    --text-color: rgb(212, 251, 255);
+
+    --font: 'Aldrich', sans-serif;
+    --font-size: 14pt;
+}
+
+*{
+    overflow-x: hidden;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+}
+
+body{
+    background-color: var(--c0);
+}
+
+/*form*/
+.form-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+/*top title*/
+.title-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tablet{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    width:500px;
+    max-width:80vw;
+    padding: 20px;
+    
+    border-radius: 25px;
+    border: 5px;
+    border-style: solid;
+    border-top-color: var(--c2-h);
+    border-left-color: var(--c2-h);
+    border-bottom-color: var(--c2-s);
+    border-right-color: var(--c2-s);
+
+    background: var(--c2);
+}
+.tablet::before{
+    content: '';
+	position: absolute;
+
+    left: 0px;
+	top: 0px;
+    width: calc(100%);
+	height: calc(100%);
+
+    background: var(--c2);
+
+}
+
+.tablet input,
+.tablet button,
+.tablet select{
+    font-family: var(--font);
+    font-size: var(--font-size);
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    color: var(--text-color);
+
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: inset 0px 0px 15px 3px var(--c4-h);
+
+    font-family: var(--font);
+    font-size: var(--font-size);
+
+    /*background: repeating-linear-gradient(0deg, var(--c4-h2) 85%, var(--c4) 85%, var(--c4) 99%, var(--c4-h2) 100%);
+    */
+    background: repeating-linear-gradient(0deg, var(--c4-h2) 0%, var(--c4) 1%, var(--c4) 10%);
+    animation: animateBg 10s infinite linear;
+}
+
+@keyframes animateBg {
+    0% {
+      background-position: 0px 0px;
+    }
+    100% {
+      background-position:  0px -73px;
+    }
+}
+
+/*text inputs and select*/
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5px;
+   
+}
+
+
+/*selections*/
+.check-boxes,
+.radio-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.check-boxes span,
+.radio-buttons span{
+    text-align: center;
+}
+
+.checks,
+.radios{
+    display: flex;
+    
+    
+justify-content: space-evenly;}
+
+.radio-red, .radio-blue, .check{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*description*/
+.textarea{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+
+}
+
+.textarea label{
+    text-align: center;
+}
+
+
+.textarea textarea{
+    padding-top: 10px;
+    padding-left: 10px;
+    
+    resize: none;
+    border: none;
+    outline: none;
+    
+    border-radius: 10px;
+    background-color: rgba(89, 187, 243, 0.5);
+    
+    color: var(--text-color);
+    
+    
+    font-family: var(--font);
+    font-size: var(--font-size);
+}
+
+.content input,
+.content select{
+    padding: 2px;
+    padding-left: 5px;
+    
+    border: none;
+    outline: none;
+    
+    background-color: rgba(89, 187, 243, 0.74);
+    color: var(--text-color);
+    
+}
+
+.content button{
+    border: none;
+    width: 200px;
+    height: 30px;
+    
+    border-radius: 50px;
+    align-self: center;
+    
+    background-color: rgba(89, 187, 243, 0.74);
+    color: var(--text-color);
+}
+.content button:hover{
+    background-color: rgba(137, 205, 245, 0.74);
+}
+
+.textarea textarea::placeholder,
+.content input::placeholder
+{
+    color: var(--text-color);
+}
+
+@media screen and (max-width:480px){
+    .grid-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .checks{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    flex-wrap: wrap;}
+}

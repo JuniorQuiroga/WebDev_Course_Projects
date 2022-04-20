@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <title >Survey Page</title>
+    </head>
+    <body>
+        <div class="form-container">
+            <form id="survey-form" action="">
+                <div class="tablet">
+                    <div class="content">
+                        <div class="title-container">
+                            <h1 id="title">The Battle</h1>
+                            <p id="description">This is the greatest battle of the world. Red vs Blue who's going to win?!</p>
+                        </div>
+
+                        <div class="grid-container">
+                            <label for="name" id="name-label">Name</label>
+                            <input placeholder="> Jose Flores" type="text" name="name" id="name" required>
+                            
+                            <label for="email" id="email-label">Email</label>
+                            <input placeholder="> Jose@gmail.com" type="email" name="email" id="email" required>
+                            
+                            <label for="number" id="number-label">ID</label>
+                            <input placeholder="> 99999999" type="number" name="number" id="number" min="1" max="99999999" pattern="/[0-9]{1-8}">
+                            
+                            <label for="dropdown">Weapons</label>
+                            <select name="dropdown" id="dropdown">
+                                <option value="d" id="disable"></option>
+                                <option value="0">Katana</option>
+                                <option value="1">Compound bow</option>
+                                <option value="2">Pistol</option>
+                            </select>
+                        </div>
+                        
+                        <div class="radio-buttons">
+                            <span>Select your team</span>
+                            <div class="radios">
+                                <div class="radio-red">
+                                    <input type="radio" name="team" id="red" value="red">
+                                    <label for="red">Red</label>
+                                </div>
+                                <div class="radio-blue">
+                                    <input type="radio" name="team" id="blue" value="blue">
+                                    <label for="blue">Blue</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="check-boxes">
+                            <span>Select atributes</span>
+                            <div class="checks">
+                                <div class="check">
+                                    <input type="checkbox" name="check1" id="check1" value="strength">
+                                    <label for="check1">strength</label>
+                                </div>
+                                <div class="check">
+                                    <input type="checkbox" name="check2" id="check2" value="speed">
+                                    <label for="check2">speed</label>
+                                </div>
+                                <div class="check">
+                                    <input type="checkbox" name="check3" id="check3" value="defence">
+                                    <label for="check3">defence</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="textarea">
+                            <label for="textarea">Description of your character</label>
+                            <textarea name="description" id="textarea" cols="30" rows="10" placeholder=">"></textarea>
+                        </div>
+                        
+                        <button type="submit" id="submit">Submit</button>
+                    </div>
+                </div>
+            </form> 
+        </div>
+    </body>
+    </html>
