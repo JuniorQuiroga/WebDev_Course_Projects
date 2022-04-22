@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Product Landing Page</title>
+    </head>
+    <body>
+        <header id="header">
+            <div class="header-img">
+                <img id="header-img" src="https://i.imgur.com/tVW1bRj.png" alt="ElectroStock">
+            </div>
+
+            <div class="nav-bar">
+                <nav id="nav-bar">
+                    <a class="nav-link" href="#product">Product</a>
+                    <a class="nav-link" href="#description">Description</a>
+                    <a class="nav-link" href="#pricing">Pricing</a>
+                </nav>
+            </div>
+        </header>
+        
+        
+        <section class="product" id="product">
+            <h1>Instax Mini 9</h1>
+            <div class="video">
+                <iframe id="video" src="https://www.youtube.com/embed/fvQFnY0GL6E" title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                allow="autoplay"></iframe>
+            </div>
+        </section>
+
+        <section id="description">
+            <h2>
+                Description
+            </h2>
+            <p>
+                The new, Instax Mini 9 camera retains the ease of use and attractive design elements of the extremely popular Instax Mini 8 while adding five new exciting colors and a couple of new features. 
+                The new colors are: Flamingo Pink, Ice Blue, Lime Green, Cobalt Blue and Smokey White. 
+                The new, Instax Mini 9 features a selfie mirror for the perfect selfie photo every time. 
+                Close up macro photos are now easier thanks to the included close-up lens adapter which allows you to focus on subjects as close as 35-50 cm. 
+                The Instax Mini 9 retains all of the other great features found in the Mini 8 including: Automatic exposure measurement. 
+                The camera signals the recommended aperture setting with a flashing LED light and the user can manually adjust the dial to the recommended setting. 
+                This helps the user capture the perfect photo every time. The High-Key mode enables consumers to take brighter pictures with a soft look-perfect for portraits.
+            </p>
+        </section>
+
+        <section id="pricing">
+            <div id="p1" class="product-card">
+                <div class="img-container">
+                    <img src="https://m.media-amazon.com/images/I/71n0IwzJu-L._AC_SL1500_.jpg" alt="pink camera">
+                </div>
+                <h3>Camera</h3>
+                <span>$80</span>
+                <button class="buy-button" type="button">Add to Cart</button>
+            </div>
+            <div id="p2" class="product-card">
+                <div class="img-container">
+                    <img src="https://m.media-amazon.com/images/I/51nSHW00wKL._AC_.jpg" alt="camera cartridges">
+                </div>
+                <h3>Cartridges</h3>
+                <span>$20</span>
+                <button class="buy-button" type="button">Add to Cart</button>
+            </div>
+            <div id="p3" class="product-card">
+                <div class="img-container">
+                    <img src="https://www.bhphotovideo.com/images/images2500x2500/fujifilm_instax_mini_9_instant_1345718.jpg" alt="camera and a pack of cartridges">
+                </div>
+                <h3>Camera + Cartridges</h3>
+                <span>$90</span>
+                <button class="buy-button" type="button">Add to Cart</button>
+            </div>
+        </section>
+
+        <footer>
+            <span>Subscribe for updates</span>
+            <div class="form-container">
+                <form id="form" action="https://www.freecodecamp.com/email-submit">
+                    <input required placeholder="introduce your email" type="email" name="email" id="email">
+                    <button id="submit" type="submit">Subscribe</button>
+                </form>
+            </div>
+        </footer>
+    </body>
+</html>
