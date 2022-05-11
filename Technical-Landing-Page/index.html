@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Technical Landing Page</title>
+</head>
+<body>
+    <nav id="navbar">
+        <header> 
+            <span>
+                PyQt5 Basic Guide
+            </span> 
+        </header>
+        <ul>
+            <li><a class="nav-link" href="#installation">Installation</a></li>
+            <li><a class="nav-link" href="#hello_world">Hello World</a></li>
+            <li><a class="nav-link" href="#window_sizing">Window sizing</a></li>
+            <li><a class="nav-link" href="#buttons">Buttons</a></li>
+            <li><a class="nav-link" href="#text_input">Text input</a></li>
+            <li><a class="nav-link" href="#input_processing">Input processing</a></li>
+        </ul>
+    </nav>
+    <main id="main-doc">
+        <section id="installation" class="main-section">
+            <header>Installation</header>
+            <p>
+                You can install PyQt5 from pip with the command.
+            </p>
+            
+            <div class="code">
+                <code>
+                    $ pip install PyQt5
+                </code>
+            </div>
+                <p>
+                and that's it you have successfully installed PyQt5.
+            </p>
+        </section>
+
+        <section id="hello_world" class="main-section">
+            <header>Hello World</header>
+            <p>
+                Like the tradition demands we have to start our jorney with 
+                the now classic hello world aplicaction.
+            </p>
+            <p>
+                To make our hello world app we have to create a new python file,
+                lets call it "app.py", inside this we have to define a window 
+                and a label inside with the text "Hello world!".
+            </p>
+            <div class="code">
+                <code>
+                    import sys<br>
+                    from PyQt5.QtWidgets import QApplication, QLabel<br>
+                    <br>
+                    class MainWindow(QMainWindow):<br>
+                    &emsp;def __init__(self):<br>   
+                    &emsp;&emsp;super().__init__()<br>
+                    &emsp;&emsp;self.setWindowTittle("Hello world")<br>
+                    &emsp;&emsp;self.label = QLabel("Hello world!")<br>
+                    &emsp;&emsp;self.setCentralWidget(self.label)<br>
+                    <br>
+                    def main():<br>
+                    &emsp;app = QApplication(sys.argv)<br>
+                    <br>
+                    &emsp;window = MainWindow()<br>
+                    &emsp;window.show()<br>
+                    <br>
+                    &emsp;app.exec()<br>
+                    <br>
+                    if __name__=="__main__":<br>
+                    &emsp;main()
+                </code>
+            </div>
+            
+            <p>
+                What are we doing?
+            </p>
+            <ul>
+                <li>
+                    <q>from PyQt5.QtWidgets import QApplication, QLabel</q>
+                    we import the classes that we are going to use.
+                </li>
+                <li>
+                    <q>app = QApplication(sys.argv)</q>
+                    this creates an instance of QApplication.
+                </li>
+                <li>
+                    <q>window = MainWindow()</q>
+                    to create a custom window we create a subclass of QMainWindow.
+                </li>
+                <li>
+                    in the <q>__init__()</q>
+                    we configure our custom window. 
+                </li>
+                <li>
+                    <q>self.setWindowTittle("")</q>
+                    we stablish the title. 
+                </li>
+                <li>
+                    <q>self.label = Qlabel("")</q> 
+                    we create a new label and with 
+                    <q>self.setCentralWidget(self.label)</q>
+                    we assign it to the custom window.
+                </li>
+                <li>
+                    <q>window.show()</q> 
+                    is a necesary step in order to see our custom window.
+                </li>
+                <li>
+                    we call <q>app.exec()</q> to start the event loop.
+                </li>
+            </ul>
+        </section>
+
+        <section id="window_sizing" class="main-section">
+            <header>Window sizing</header>
+            <p>
+                We can stablish the size of our window with the methods
+            </p>
+            
+            <div class="code">
+                <code>
+                    .setFixedSize(QSize(x_size,y_size))
+                </code>
+            </div>
+            <p>
+                on our <q>__init__()</q> method in the custom window subclass.
+                We can also stablish restrictions such as maximum and minimum size 
+                with the methods:
+            </p>
+            <div class="code">
+                <code>
+                    .setMinimumSize(QSize(x_size,y_size))
+                    .setMaximumSize(QSize(x_size,y_size))
+                </code>
+            </div>
+        </section>
+
+        <section id="buttons" class="main-section">
+            <header>Buttons</header>
+            <p>
+                Buttons are a fundamental part of any user interface to interact 
+                with the software.
+            </p>
+            <p>
+                We can create buttons easily in PyQt5 with the next peace of code 
+                inside our custom window "__init__()", but first we have to import
+                the buttons module called <q>QPushButton</q>
+            </p>
+            <div class="code">
+                <code>
+                    from PyQt5.QtWidgets import QPushButton
+                </code>
+            </div>
+            <p>
+                Now we can create our button, in this case we're going to create 
+                a simple button that will print something when we push it
+            </p>
+            <div class="code">
+                <code>
+                    class MainWindow(QMainWindow): <br>
+                    &emsp;def __init__(self):<br>
+                    &emsp;&emsp;super().__init__()<br>
+                    &emsp;&emsp;self.button = QPushButton("Press me")<br>
+                    &emsp;&emsp;self.button.clicked.connect(self.the_button_was_clicked)<br>
+                    <br>
+                    &emsp;&emsp;self.setCentralWidget(self.button)<br>
+                    <br>
+                    &emsp;def the_button_was_clicked(self):<br>
+                    &emsp;&emsp;print("Hello!! :D")<br>
+                </code>
+            </div>
+            <p>
+                with this new implementation of our custom sub class of MainWindowe we 
+                should see a button in the middle with the text <q>Press me</q> and 
+                when we press it, it should show us a <q>Hello!! :D</q> on the console.
+            </p>
+            <p>So what's happening here?</p>
+            <ul>
+                <li>
+                    <q>self.button = QPushButton("Press me")</q> first we create a new 
+                    button with a text to show in the middle.
+                </li>
+                <li>
+                    <q>self.button.clicked.connect(self.the_button_was_clicked)</q> 
+                    then we state that when we click the button it will call
+                    the <q>the_button_was_clicked()</q> method inside of our custom subclass
+                </li>
+                <li>
+                    <q>the_button_was_clicked()</q> once this method is called it will 
+                    run what ever we specified inside, in this case it will print <q>Hello!! :D</q>
+                </li>
+            </ul>
+        </section>
+        <section id="text_input" class="main-section">
+            <header>Text input</header>
+            <p>
+                Other important way to interact with a piece of software is via input fields 
+                the most commondly known being the text input, a way to input data to be procesed.
+            </p>
+            <p>
+                We can make this easily in PyQt5, but before anything we have to import 
+                the corresponding module, in PyQt5 this module is called <q>QLineEdit</q>.
+            </p>
+            <div class="code">
+                <code>
+                    from PyQt5.QtWidgets import QLineEdit
+                </code>
+            </div>
+
+            <p>
+                But for this case this is not going to be enough because we need to pack two 
+                elements in the window, the text field and a label, for this we need to import
+                the <q>QWidget</q>, the <q>QLabel</q> and the <q>QVBoxLayout</q> module.
+            </p>
+
+            <div class="code">
+                <code>
+                    from PyQt5.QtWidgets import QWidget, QLabel, QVBoxLayout
+                </code>
+            </div>
+
+            <p>
+                Now we can instanciate a new text field and a label that will show whatever 
+                we write on the field.
+            </p>
+            <div class="code">
+                <code>
+                    class MainWindow(QMainWindow): <br>
+                    &emsp;def __init__(self): <br>
+                    &emsp;&emsp;super().__init__() <br>
+                    <br>
+                    &emsp;&emsp;self.input = QLineEdit() <br>
+                    &emsp;&emsp;self.label = QLabel() <br>
+                    <br>
+                    &emsp;&emsp;self.input.textChanged.connect(self.label.setText) <br>
+                    <br>
+                    &emsp;&emsp;layout = QVBoxLayout() <br>
+                    &emsp;&emsp;layout.addWidget(self.input) <br>
+                    &emsp;&emsp;layout.addWidget(self.label) <br>
+                    <br>
+                    &emsp;&emsp;container = QWidget() <br>
+                    &emsp;&emsp;container.setLayout(layout) <br>
+                    <br>
+                    &emsp;&emsp;self.setCentralWidget(container) <br>
+                </code>
+            </div>
+                
+            <p>
+                So what's happening here?
+            </p>
+
+            <ul>
+                <li>
+                    <q>self.input = QLineEdit()</q> we instanciated a new text fiel input 
+                    follow by instanciation of the label.
+                </li>
+                <li>
+                    <q>self.input.textChanged.connect(self.label.setText)</q> we declare that 
+                    if the text changes it sends a signal to the setText method of the label 
+                    that repleces the current text of the label for the one introduced 
+                    in the field.
+                </li>
+                <li>
+                    <q>layout = QVBoxLayout()</q> we instanciate a new layout.
+                </li>
+                <li>
+                    <q>
+                        layout.addWidget(self.input)
+                    </q>
+                    <q>
+                        layout.addWidget(self.label)
+                    </q>
+                    we add the field and label to the layout 
+                </li>
+                <li>
+                    <q>container = QWidget()</q> we declare a new widget that will contain 
+                    everithing, this is going to ve the central component of our custom MainWindow.
+                </li>
+                <li>
+                    <q>container.setLayout(layout)</q> we set our layout to our container 
+                    and this is the way we can pack multiple elements in one window.
+                </li>
+            </ul>
+        </section>
+        <section id="input_processing" class="main-section">
+            <header>Input processing</header>
+            <p>
+                To coclude this begginer guide let's create a simple app that will take text 
+                from a field and uppercase it with the press of a button.
+            </p>
+            
+            <div class="code">
+                <code>
+                    from PyQt5.QtWidgets import QLineEdit
+                </code>
+            </div>
+
+            <p>
+                But for this case this is not going to be enough because we need to pack two 
+                elements in the window, the text field and a label, for this we need to import
+                the <q>QWidget</q>, the <q>QLabel</q> and the <q>QVBoxLayout</q> module.
+            </p>
+            
+            <div class="code">
+                <code>
+                    from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget <br>
+                    from PyQt5.QtWidgets import QLabel, QLineEdit, QVBoxLayout, QPushButton <br>
+                    import sys <br>
+                    
+                    
+                    class MainWindow(QMainWindow):<br>
+                    &emsp;def __init__(self):<br>
+                    &emsp;&emsp;super().__init__()<br>
+                    <br>
+                    &emsp;&emsp;self.setWindowTitle("Upper text app")<br>
+                    <br>
+                    &emsp;&emsp;container = QWidget()<br>
+                    &emsp;&emsp;layout = QVBoxLayout()<br>
+                    &emsp;&emsp;self.text_input = QLineEdit()<br>
+                    &emsp;&emsp;self.button = QPushButton("Upper the text")<br>
+                    &emsp;&emsp;self.label = QLabel()<br>
+                    <br>
+                    &emsp;&emsp;self.button.clicked.connect(self.read_and_upper_field)<br>
+                    <br>
+                    &emsp;&emsp;layout.addWidget(self.text_input)<br>
+                    &emsp;&emsp;layout.addWidget(self.button)<br>
+                    &emsp;&emsp;layout.addWidget(self.label)<br>
+                    <br>
+                    &emsp;&emsp;container.setLayout(layout)<br>
+                    &emsp;&emsp;self.setCentralWidget(container)<br>
+                    <br>
+                    &emsp;def read_and_upper_field(self):<br>
+                    &emsp;&emsp;upper_text = str.upper(self.text_input.text())<br>
+                    &emsp;&emsp;self.label.setText(upper_text)<br>
+                    <br>
+                    def main():<br>
+                    &emsp;app = QApplication(sys.argv)<br>
+                    <br>
+                    &emsp;window = MainWindow()<br>
+                    &emsp;window.show()<br>
+                    <br>
+                    &emsp;app.exec()<br>
+                    <br>
+                    if __name__=="__main__":<br>
+                    &emsp;main()<br>
+                </code>
+            </div>
+            
+            <p>
+                In our custom MainWindow subclass we declare five elements 
+                a widget that will contain the layout which in turn will contain the 
+                text field, button and label.
+                After this, we declare that when the button is clicked, it will call the 
+                method <q>read_and_upper_field(self)</q>, in this methos we make use of 
+                the <q>.upper()</q> method from the <q>str</q> class which receives as parameter
+                the text from the text field with <q>self.text_input.text()</q>, the result of this 
+                is passed as parameter to the <q>.setText()</q> method of our label. 
+            </p>
+        </section>
+    </main>
+</body>
+</html>

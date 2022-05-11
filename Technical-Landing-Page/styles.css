@@ -1,0 +1,142 @@
+:root{
+    --bg: rgb(15, 15, 15);
+    --bg-section: rgb(20, 19, 20);
+    --code-bg: rgb(44, 42, 49);
+    --text: rgb(214, 221, 224);
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body{
+    display: flex;
+    flex-direction: row;
+
+    color: var(--text);
+    background-color: var(--bg);
+}
+
+#navbar{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 200px;
+    gap: 10px;
+    margin: 10px 10px;
+}
+
+#navbar header{
+    text-align: center;
+}
+
+#navbar ul{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+}
+
+#navbar li{
+    text-align: center; 
+    width: 100%;
+    padding: 2px 0px;
+}
+
+#navbar li:hover{
+    background-color: var(--code-bg);
+}
+
+#navbar a{
+    color: var(--text);
+    text-decoration: none;
+}
+
+
+#main-doc{
+    display: block;
+    margin: 0px 200px;
+    width: 100%;
+}
+
+.main-section{
+    display: block;
+    padding: 20px 10px;
+    background-color: var(--bg-section);
+}
+
+.main-section p, li{
+    line-height: 1.4;
+}
+
+.main-section header{
+    font-size: 15pt;
+    margin-bottom: 10px;
+}
+
+.main-section > ul{
+    padding-left: 10px;
+}
+
+.main-section q{
+    background-color: var(--code-bg);
+    padding: 1px 3px;
+    border-radius: 5px;
+}
+
+.code{
+    display: block;
+    
+    padding: 10px;
+    overflow-x:auto;
+    border-radius: 7px;
+    margin: 0.5em 0px;
+    
+    background-color: var(--code-bg);
+    color: var(--text);
+}
+
+
+@media screen and (max-width:1000px){
+    #main-doc{
+        margin-right: 0px;
+    }
+}
+
+@media screen and (max-width:720px){
+    #navbar{
+        width: 20vw;
+    }
+    
+    #main-doc{
+        margin-left: 22vw;
+    }
+}
+
+@media screen and (max-width:480px){
+    body{
+        flex-direction: column;
+    }
+
+    #navbar{
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    #navbar ul{
+        flex-direction: column;
+        align-items: center;
+    }
+    #navbar header{
+        text-align: center;
+    }
+
+    #main-doc{
+        margin: 0px;
+    }
+}
