@@ -1,1 +1,1 @@
-"# WebDev_Course_Projects" 
+These are my projects for the Responsive Web Design course of FreeCodeCamp.org.
